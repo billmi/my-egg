@@ -1,15 +1,16 @@
 # my-egg
-my-egg
 
---npm or yarn
+1.--npm or yarn
 
 npm i
 
 yarn install
 
 
---run
+2.--run
 
 npm run dev
 
---port 3000
+
+
+3.--port 3000
