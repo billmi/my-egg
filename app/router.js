@@ -12,6 +12,8 @@ module.exports = app => {
     router.get('/user', controller.user.user);
     router.get('/user/all', controller.user.allUser);
 
+    //io
+    app.io.route('chat', app.io.controller.chat.index);
 };
 
 

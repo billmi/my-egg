@@ -19,6 +19,28 @@ module.exports = appInfo => {
     // add your config here
     config.middleware = [];
 
+    // io middleware
+    config.io = {
+        init: { }, // passed to engine.io
+        namespace: {
+            '/': {
+                connectionMiddleware: [ 'auth' ],
+                packetMiddleware: [ 'filter' ],
+            },
+            '/chat': {  //配置chat中间件
+                connectionMiddleware: [ 'auth' ],
+                packetMiddleware: [],
+            },
+        },
+        //有redis-server 再打开
+        // redis: {
+        //     host: "127.0.0.1",
+        //     port: 6379,
+        //     auth_pass: "",
+        //     db: 0,
+        // },
+    };
+
     config.view = {
         defaultViewEngine: 'ejs',
         mapping: {
@@ -39,10 +61,11 @@ module.exports = appInfo => {
     };
 
     config.middleware = ['errorHandler'],
-        // 只对 /api 前缀的 url 路径生效
-        config.errorHandler = {
-            match: '/user',
-        };
+
+    // 只对 /api 前缀的 url 路径生效
+    config.errorHandler = {
+        match: '/user',
+    };
 
     return config;
 };
