@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require("path");
+
 module.exports = appInfo => {
     const config = exports = {};
 
@@ -41,6 +43,14 @@ module.exports = appInfo => {
         // },
     };
 
+    config.static = {
+        prefix : '/',
+        dir: path.join(appInfo.baseDir, 'app/public'),
+        dynamic: true,
+        preload: false,
+        buffer : false          // buffer: true in prod env, false in other envs
+    };
+
     config.view = {
         defaultViewEngine: 'ejs',
         mapping: {
@@ -54,11 +64,11 @@ module.exports = appInfo => {
     //   };
     config.onerror = {
         // 线上页面发生异常时，重定向到这个页面上
-        errorPageUrl: '/public/error.html'
+        errorPageUrl: '/error.html'
     };
     config.notfound = {
         // 线上页面发生异常时，重定向到这个页面上
-        pageUrl: '/public/404.html'
+        pageUrl: '/404.html'
     };
 
     config.middleware = ['errorHandler'],
