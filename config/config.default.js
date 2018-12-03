@@ -49,7 +49,8 @@ module.exports = appInfo => {
     };
 
     // config.logger = {  //关闭所有打印到终端的日志：
-    //       consoleLevel: 'NONE',
+    //       consoleLevel: 'NONE',         // 日志分为 NONE，DEBUG，INFO，WARN 和 ERROR 5 个级别。
+    //       dir: '/path/to/your/custom/log/dir',
     //   };
     config.onerror = {
         // 线上页面发生异常时，重定向到这个页面上
