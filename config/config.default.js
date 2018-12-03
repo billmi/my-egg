@@ -53,11 +53,11 @@ module.exports = appInfo => {
     //   };
     config.onerror = {
         // 线上页面发生异常时，重定向到这个页面上
-        errorPageUrl: '/error.html'
+        errorPageUrl: '/public/error.html'
     };
     config.notfound = {
         // 线上页面发生异常时，重定向到这个页面上
-        pageUrl: '/404.html'
+        pageUrl: '/public/404.html'
     };
 
     config.middleware = ['errorHandler'],
